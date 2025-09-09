@@ -5,7 +5,7 @@ import styles from "./Register.module.css"
 
 const Register = () => {
 
-    const { register, handleSubmit, formState: {errors} } = useForm<IUser>()
+    const { register, handleSubmit, formState: {isSubmitting, errors} } = useForm<IUser>()
 
     const onSubmit: SubmitHandler<IUser> = async (data) => {
         try{
@@ -47,7 +47,7 @@ return (
             <option value="adm">Adm</option>
         </select>
         </div>
-        <input type="submit" placeholder="Cadastrar"  className={styles.submitButton}/>
+        <input type="submit" placeholder="Cadastrar" value={isSubmitting ? "Registrando...": " Registrar"} className={styles.submitButton}/> 
     </form>
     </div>
 )
